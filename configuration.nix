@@ -33,6 +33,8 @@
   services.httpd.enable = true;
   services.httpd.enablePHP = true;
   services.httpd.adminAddr = "eli_kogan@yahoo.de";
+  services.mysql.package = pkgs.mysql;
+
 
   services.vnstat.enable = true;
   services.printing.enable = true;
