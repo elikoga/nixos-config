@@ -1,7 +1,5 @@
 { config, pkgs, ... }:
 
-
-
 {
   imports =
     [
@@ -29,6 +27,12 @@
   networking.useDHCP = false;
 
   boot.kernelPackages = pkgs.linuxPackages_4_9;
+
+
+  services.mysql.enable = true;
+  services.httpd.enable = true;
+  services.httpd.enablePHP = true;
+
 
   services.vnstat.enable = true;
   services.printing.enable = true;
@@ -142,7 +146,6 @@
       adwaita-icon-theme
       file-roller
       dconf-editor
-      multimc
     ]
   );
   users.users.coafin = {
