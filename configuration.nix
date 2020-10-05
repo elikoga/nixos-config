@@ -36,7 +36,7 @@
   services.mysql.package = pkgs.mysql;
   services.httpd.virtualHosts = {
     localhost = {
-        documentRoot = "/home/coafin/Dev/apacheroot";
+        documentRoot = "/srv/apacheroot";
         };
     };
 
