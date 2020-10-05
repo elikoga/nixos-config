@@ -37,7 +37,7 @@
   services.httpd.virtualHosts = {
     localhost = {
         documentRoot = "/home/coafin/Dev/apacheroot";
-        }
+        };
     };
 
   services.vnstat.enable = true;
