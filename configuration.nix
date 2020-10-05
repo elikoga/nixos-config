@@ -35,8 +35,8 @@
   services.httpd.adminAddr = "eli_kogan@yahoo.de";
   services.mysql.package = pkgs.mysql;
   services.httpd.virtualHosts = {
-    localhost: {
-        documentRoot: "/home/coafin/Dev/apacheroot";
+    localhost = {
+        documentRoot = "/home/coafin/Dev/apacheroot";
         }
     };
 
