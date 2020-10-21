@@ -154,6 +154,7 @@
       dconf-editor
     ]
   );
+  virtualisation.docker.enable = true;
   users.users.coafin = {
     isNormalUser = true;
     extraGroups = [ "wheel" "networkmanager" "docker" "video" "dialout" "wireshark" ]; # Enable ‘sudo’ for the user.
