@@ -59,6 +59,8 @@
 
   networking.networkmanager.enable = true;
 
+  virtualisation.libvirtd.enable = true;
+
   sound.enable = true;
   hardware.pulseaudio.enable = true;
   hardware.pulseaudio.package = pkgs.pulseaudioFull;
@@ -157,7 +159,7 @@
   virtualisation.docker.enable = true;
   users.users.coafin = {
     isNormalUser = true;
-    extraGroups = [ "wheel" "networkmanager" "docker" "video" "dialout" "wireshark" ]; # Enable ‘sudo’ for the user.
+    extraGroups = [ "wheel" "networkmanager" "docker" "video" "dialout" "wireshark" "libvirtd" ]; # Enable ‘sudo’ for the user.
     hashedPassword = "$6$ixcLHZOIyPAGS$bH4hWJrMQrzgzVGR.BmCRD1qxY1OLOpuOoQ3kr4RDrzsA9dISCgeliOh14c34t/e2btSzvIyI57ibqhCJtD451";
   };
   security.pam.services.coafin.enableGnomeKeyring = true;
