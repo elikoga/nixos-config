@@ -36,7 +36,7 @@
       local all all trust
       host all all ::1/128 trust
     '';
-    ensureUseres = "[
+    ensureUseres = [
       {
         name = "tester";
         ensurePermissions = {
