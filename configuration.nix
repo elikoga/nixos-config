@@ -36,8 +36,16 @@
       local all all trust
       host all all ::1/128 trust
     '';
+    ensureUseres = "[
+      {
+        name = "tester";
+        ensurePermissions = {
+          "ALL TABLES IN SCHEMA public" = "ALL PRIVILEGES";
+        };
+      }
+    ];
     initialScript = pkgs.writeText "backend-initScript" ''
-      CREATE ROLE tester WITH LOGIN PASSWORD 'tester' CREATEDB;
+      CREATE USER tester WITH PASSWORD 'tester' CREATEDB CREATEUSER;
       CREATE DATABASE testdb;
       GRANT ALL PRIVILEGES ON DATABASE testdb TO tester;
     '';
