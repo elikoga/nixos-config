@@ -28,9 +28,23 @@
 
   boot.kernelPackages = pkgs.linuxPackages_4_9;
 
+  services.postgresql = {
+    enable = true;
+    package = pkgs.postgresql_13;
+    enableTCPIP = true;
+    authentication = pkgs.lib.mkOverride 10 ''
+      local all all trust
+      host all all ::1/128 trust
+    '';
+    initialScript = pkgs.writeText "backend-initScript" ''
+      CREATE ROLE tester WITH LOGIN PASSWORD 'tester' CREATEDB;
+      CREATE DATABASE testdb;
+      GRANT ALL PRIVILEGES ON DATABASE testdb TO tester;
+    '';
+  };
 
-  services.mysql.enable = true;
-  services.httpd.enable = true;
+  services.mysql.enable = false;
+  services.httpd.enable = false;
   services.httpd.enablePHP = true;
   services.httpd.adminAddr = "eli_kogan@yahoo.de";
   services.mysql.package = pkgs.mysql;
