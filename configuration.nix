@@ -45,7 +45,7 @@
       }
     ];
     initialScript = pkgs.writeText "backend-initScript" ''
-      CREATE USER tester WITH PASSWORD 'tester' CREATEDB CREATEUSER;
+      CREATE USER tester WITH SUPERUSER PASSWORD 'tester';
       CREATE DATABASE testdb;
       GRANT ALL PRIVILEGES ON DATABASE testdb TO tester;
     '';
@@ -109,6 +109,8 @@
   ];
 
   environment.systemPackages = with pkgs; [
+    zip
+    unzip
     file
     discord
     libreoffice
