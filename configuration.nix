@@ -74,7 +74,6 @@
   services.gnome3.gnome-keyring.enable = true;
   programs.seahorse.enable = true;
   programs.gnupg.agent = { enable = true; enableSSHSupport = true; };
-  programs.browserpass.enable = true;
   programs.dconf.enable = true;
   services.openssh.enable = true;
   services.gvfs.enable = true;
@@ -149,8 +148,6 @@
     tdesktop
     pulsemixer
     tigervnc
-    rofi-pass
-    qtpass
     pwgen
     xdotool
     thunderbird
@@ -160,18 +157,9 @@
     kdeconnect
     wireshark
     brightnessctl
-    (
-      pass.withExtensions (
-        ext: [
-          ext.pass-audit
-          ext.pass-genphrase
-          ext.pass-import
-          ext.pass-update
-          ext.pass-tomb
-        ]
-      )
-    )
     vscode
+    bitwarden
+    bitwarden-cli
     nixpkgs-fmt
   ] ++ (
     with gnome3; [
